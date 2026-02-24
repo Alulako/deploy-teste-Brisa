@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura | Moda e Estilo</title>
+    <style>
+        /* Reset de margens e fontes */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fafafa;
+            color: #333;
+        }
+
+        /* Cabeçalho e Navegação */
+        header {
+            background-color: #111;
+            color: #fff;
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #a88755;
+        }
+
+        /* Seção Principal (Hero) */
+        .hero {
+            height: 70vh;
+            /* Imagem de fundo genérica para loja de roupas */
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .btn-primary {
+            padding: 15px 35px;
+            background-color: #a88755;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #8c6e43;
+            transform: translateY(-2px);
+        }
+
+        /* Seção de Produtos */
+        .colecao {
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .colecao h2 {
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: #111;
+        }
+
+        .grid-produtos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card-produto {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-produto:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-produto img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-produto h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .preco {
+            font-weight: bold;
+            color: #a88755;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-comprar {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid #111;
+            color: #111;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-comprar:hover {
+            background-color: #111;
+            color: #fff;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #111;
+            color: #999;
+            text-align: center;
+            padding: 3rem 5%;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        /* Responsividade para celulares */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none; /* Esconde o menu em telas pequenas para simplificar */
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Aura</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#colecao">Coleção</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Nova Coleção de Inverno</h1>
+        <p>Descubra peças exclusivas que combinam conforto, elegância e o estilo que você procura para a nova estação.</p>
+        <a href="#colecao" class="btn-primary">Ver Produtos</a>
+    </section>
+
+    <section id="colecao" class="colecao">
+        <h2>Destaques da Semana</h2>
+        <div class="grid-produtos">
+            
+            <div class="card-produto">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Casaco de Inverno">
+                <h3>Casaco Minimalista</h3>
+                <p class="preco">R$ 349,90</p>
+                <a href="#" class="btn-comprar">Adicionar ao Carrinho</a>
+            </div>
+
+            <div class="card-produto">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Camiseta Básica">
+                <h3>T-Shirt Algodão Premium</h3>
+                <p class="preco">R$ 89,90</p>
+                <a href="#" class="btn-comprar">Adicionar ao Carrinho</a>
+            </div>
+
+            <div class="card-produto">
+                <img src="https://images.unsplash.com/photo-1542272604-780c822295ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Jaqueta Jeans">
+                <h3>Jaqueta Jeans Clássica</h3>
+                <p class="preco">R$ 259,90</p>
+                <a href="#" class="btn-comprar">Adicionar ao Carrinho</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contato">
+        <p>&copy; 2026 Aura Moda e Estilo. Todos os direitos reservados.</p>
+        <p>contato@auramoda.com.br | (11) 99999-9999</p>
+    </footer>
+
+</body>
+</html>
