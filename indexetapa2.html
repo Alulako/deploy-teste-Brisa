@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Etapa 2</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+        
+        body { color: #063338; background-color: #1094ab; display: flex; min-height: 100vh; }
+
+        /* --- LAYOUT SPLIT --- */
+        .left-panel { width: 100%; background-color: #1094ab; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 48px; position: relative; }
+        .right-panel { display: none; width: 50%; background-color: #F8FAFC; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 48px; }
+        @media (min-width: 768px) { .left-panel { width: 50%; } .right-panel { display: flex; } }
+
+        /* --- LOGO --- */
+        .logo-container { position: absolute; top: 32px; left: 32px; display: flex; align-items: center; gap: 8px; color: #ffffff; }
+        .logo-text { font-weight: 700; font-size: 30px; letter-spacing: -1px; }
+        .logo-text span { font-weight: 300; }
+
+        /* --- CARD FORMULÁRIO --- */
+        .form-card { background-color: #ffffff; border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); padding: 40px; width: 100%; max-width: 512px; position: relative; overflow: hidden; z-index: 10; animation: slideInRight 0.5s ease-out; }
+        .card-top-accent { position: absolute; top: 0; left: 0; width: 100%; height: 8px; background-color: #fcb421; }
+
+        /* --- BOTÃO VOLTAR --- */
+        .btn-back { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: #94a3b8; text-decoration: none; margin-bottom: 24px; transition: color 0.2s; }
+        .btn-back:hover { color: #1094ab; }
+
+        /* --- CABEÇALHO DO CARD (CÓDIGO) --- */
+        .header-wpp { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 32px; }
+        .icon-shield-bg { width: 64px; height: 64px; background-color: rgba(16, 148, 171, 0.1); color: #1094ab; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+        .form-title { font-size: 30px; font-weight: 700; color: #063338; margin-bottom: 8px; }
+        .form-subtitle { color: #64748b; font-weight: 500; font-size: 16px; padding: 0 8px; }
+        .badge-phone { background-color: #f1f5f9; color: #063338; font-size: 18px; font-weight: 700; padding: 4px 12px; border-radius: 8px; display: inline-block; margin-top: 8px; }
+
+        /* --- INPUTS DE CÓDIGO (OTP) --- */
+        .otp-box { background-color: #f8fafc; padding: 32px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05); margin-bottom: 32px;}
+        .otp-grid { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 32px; }
+        
+        .otp-input { width: 56px; height: 64px; font-size: 30px; font-weight: 800; text-align: center; background-color: #ffffff; border: 2px solid #cbd5e1; border-radius: 12px; color: #063338; outline: none; transition: all 0.2s; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
+        .otp-input:focus { border-color: #1094ab; box-shadow: 0 0 0 4px rgba(16, 148, 171, 0.2); }
+        .otp-input.filled { border-color: #063338; }
+
+        /* --- BOTÕES AUXILIARES --- */
+        .btn-resend { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; font-weight: 700; color: #1094ab; background-color: rgba(16, 148, 171, 0.05); padding: 8px 16px; border-radius: 9999px; text-decoration: none; transition: background 0.2s; margin: 0 auto; width: max-content;}
+        .btn-resend:hover { background-color: rgba(16, 148, 171, 0.1); }
+
+        /* --- BOTÃO CONFIRMAR --- */
+        .btn-submit { width: 100%; display: flex; align-items: center; justify-content: center; gap: 12px; padding: 16px 32px; border-radius: 12px; font-weight: 800; font-size: 20px; border: none; background-color: #063338; color: #fcb421; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.2s; }
+        .btn-submit:hover { background-color: #0a4d54; transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+
+        /* --- DECORAÇÕES DIREITA E QR CODE IGUAIS À TELA 1 --- */
+        .blur-blob-1 { position: absolute; width: 800px; height: 800px; background-color: rgba(16, 148, 171, 0.05); border-radius: 50%; filter: blur(64px); top: -160px; right: -160px; }
+        .blur-blob-2 { position: absolute; width: 600px; height: 600px; background-color: rgba(252, 180, 33, 0.1); border-radius: 50%; filter: blur(64px); bottom: 0; left: -80px; }
+        .qr-card { background-color: #ffffff; padding: 40px; border-radius: 24px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); border: 1px solid #f1f5f9; display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 384px; z-index: 10; transition: transform 0.5s; }
+        .qr-card:hover { transform: scale(1.05); }
+        .qr-icon-box { width: 80px; height: 80px; background-color: #fcb421; color: #063338; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); transform: rotate(-6deg); }
+        .qr-title { font-size: 24px; font-weight: 800; color: #063338; margin-bottom: 12px; }
+        .qr-subtitle { color: #1094ab; font-weight: 700; font-size: 18px; margin-bottom: 8px; }
+        .qr-desc { color: #64748b; font-weight: 500; margin-bottom: 32px; line-height: 1.6; }
+        .qr-image-box { padding: 16px; background-color: #ffffff; border: 4px solid #063338; border-radius: 16px; margin-bottom: 24px; cursor: pointer; transition: border-color 0.2s; }
+        .qr-image-box:hover { border-color: #fcb421; }
+        .status-badge { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; font-weight: 700; color: #fcb421; background-color: #063338; padding: 8px 16px; border-radius: 9999px; }
+        .ping-dot { position: relative; display: flex; width: 12px; height: 12px; }
+        .ping-dot-core { position: relative; display: inline-flex; border-radius: 50%; width: 12px; height: 12px; background-color: #fcb421; }
+
+        @keyframes slideInRight { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+    </style>
+</head>
+<body>
+
+    <!-- LADO ESQUERDO: FORMULÁRIO -->
+    <div class="left-panel">
+        
+        <div class="logo-container">
+            <svg viewBox="0 0 24 24" fill="#fcb421" stroke="#fcb421" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 32px; height: 32px;"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.2 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+            <div class="logo-text">inspira<span>USP</span></div>
+        </div>
+
+        <div class="form-card">
+            <div class="card-top-accent"></div>
+            
+            <a href="#" class="btn-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;"><path d="m15 18-6-6 6-6"/></svg>
+                Voltar e corrigir número
+            </a>
+
+            <div class="header-wpp">
+                <div class="icon-shield-bg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 32px; height: 32px;"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+                </div>
+                <h2 class="form-title">Digite o código</h2>
+                <p class="form-subtitle">Nós enviamos uma mensagem para o número <br><span class="badge-phone">(11) 98765-4321</span></p>
+            </div>
+
+            <div class="otp-box">
+                <div class="otp-grid">
+                    <!-- Preenchi os dois primeiros para o Figma capturar o estilo do texto e da borda ativa -->
+                    <input type="text" class="otp-input filled" value="7" maxlength="1">
+                    <input type="text" class="otp-input filled" value="2" maxlength="1">
+                    <input type="text" class="otp-input" value="" maxlength="1">
+                    <input type="text" class="otp-input" value="" maxlength="1">
+                    <input type="text" class="otp-input" value="" maxlength="1">
+                    <input type="text" class="otp-input" value="" maxlength="1">
+                </div>
+
+                <a href="#" class="btn-resend">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px; height: 16px;"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                    Reenviar código
+                </a>
+            </div>
+
+            <button class="btn-submit">
+                Confirmar
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+            </button>
+
+        </div>
+    </div>
+
+    <!-- LADO DIREITO: QR CODE -->
+    <div class="right-panel">
+        <div class="blur-blob-1"></div>
+        <div class="blur-blob-2"></div>
+        
+        <div class="qr-card">
+            <div class="qr-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 40px; height: 40px;"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h7v7h-7z"/><path d="M14 14v-2"/><path d="M21 14v-2"/><path d="M14 21h-2"/><path d="M21 21h-2"/></svg>
+            </div>
+            
+            <h3 class="qr-title">Acesso pelo Computador?</h3>
+            <p class="qr-subtitle">Não precisa digitar.</p>
+            <p class="qr-desc">Abra a câmera do seu celular e aponte para o código abaixo para entrar automaticamente.</p>
+
+            <div class="qr-image-box">
+                <svg width="180" height="180" viewBox="0 0 100 100" fill="currentColor" stroke="none" style="color: #063338;">
+                    <rect x="10" y="10" width="25" height="25" fill="none" stroke="currentColor" stroke-width="5"/>
+                    <rect x="65" y="10" width="25" height="25" fill="none" stroke="currentColor" stroke-width="5"/>
+                    <rect x="10" y="65" width="25" height="25" fill="none" stroke="currentColor" stroke-width="5"/>
+                    <rect x="15" y="15" width="15" height="15" />
+                    <rect x="70" y="15" width="15" height="15" />
+                    <rect x="15" y="70" width="15" height="15" />
+                    <path d="M45 10h10v10H45zM45 25h10v10H45zM10 45h10v10H10zM25 45h10v10H25zM45 45h25v10H45zM80 45h10v10H80zM65 65h25v10H65zM45 80h10v10H45zM80 80h10v10H80z" />
+                </svg>
+            </div>
+
+            <div class="status-badge">
+                <div class="ping-dot"><span class="ping-dot-core"></span></div>
+                Aguardando leitura...
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
