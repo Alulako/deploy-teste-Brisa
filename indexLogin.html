@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - InspiraUSP</title>
+    <style>
+        /* Fonte principal (Inter) e Fonte Serifada para o detalhe */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,700;0,800;1,400&family=Playfair+Display:ital,wght@1,600&display=swap');
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: #ffffff; }
+
+        /* --- WRAPPER PRINCIPAL (Trava as proporções para o Figma) --- */
+        .main-wrapper {
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        /* =========================================
+           LADO ESQUERDO: ILUSTRAÇÃO E IDENTIDADE
+           ========================================= */
+        .left-panel {
+            width: 50%;
+            background-color: #063338;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efeitos de Brilho Fundo */
+        .blur-yellow { position: absolute; width: 800px; height: 800px; background-color: rgba(252, 180, 33, 0.2); border-radius: 50%; filter: blur(120px); top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; }
+        .blur-blue { position: absolute; width: 500px; height: 500px; background-color: rgba(16, 148, 171, 0.3); border-radius: 50%; filter: blur(100px); bottom: 0; left: 0; pointer-events: none; }
+
+        .left-content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+            max-width: 576px;
+        }
+
+        .rocket-icon { color: #fcb421; margin-bottom: 40px; }
+
+        .hero-title { font-size: 72px; font-weight: 700; color: #ffffff; line-height: 1.1; margin-bottom: 24px; letter-spacing: -1px; }
+        .hero-italic { color: #fcb421; font-style: italic; font-family: 'Playfair Display', serif; font-weight: 600; }
+
+        .hero-desc { color: #1094ab; font-size: 24px; font-weight: 500; margin-top: 16px; border-left: 4px solid #1094ab; padding-left: 24px; line-height: 1.4; }
+
+
+        /* =========================================
+           LADO DIREITO: FORMULÁRIO DE LOGIN
+           ========================================= */
+        .right-panel {
+            width: 50%;
+            background-color: #1094ab;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 64px;
+            position: relative;
+        }
+
+        /* Logo Sup Esg */
+        .logo-container { position: absolute; top: 64px; display: flex; align-items: center; gap: 12px; color: #ffffff; margin-bottom: 32px; }
+        .logo-text { font-weight: 700; font-size: 48px; letter-spacing: -2px; }
+        .logo-text span { font-weight: 300; }
+
+        /* Card Branco */
+        .form-card { background-color: #ffffff; border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); padding: 56px; width: 100%; max-width: 512px; margin-top: 96px; position: relative; overflow: hidden; z-index: 10; }
+        .card-top-accent { position: absolute; top: 0; left: 0; width: 100%; height: 10px; background-color: #fcb421; }
+
+        .form-header { margin-bottom: 40px; margin-top: 8px; }
+        .form-title { font-size: 36px; font-weight: 800; color: #063338; margin-bottom: 8px; letter-spacing: -0.5px;}
+        .form-subtitle { color: #64748b; font-weight: 500; font-size: 16px; }
+
+        /* Inputs */
+        .input-group { margin-bottom: 24px; }
+        .input-label { display: block; font-size: 16px; font-weight: 700; color: #063338; margin-bottom: 8px; padding-left: 4px; }
+        .input-field { width: 100%; background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; font-size: 18px; color: #063338; font-weight: 500; outline: none; transition: all 0.2s; }
+        .input-field::placeholder { color: #94a3b8; font-weight: 500; }
+        .input-field:focus { border-color: #1094ab; box-shadow: 0 0 0 4px rgba(16, 148, 171, 0.1); }
+        
+        .input-relative { position: relative; }
+        .icon-btn { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #94a3b8; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0;}
+
+        /* Links e Botão */
+        .forgot-pwd { display: flex; justify-content: flex-end; margin-top: 12px; padding-right: 4px; }
+        .forgot-pwd a { font-size: 16px; font-weight: 700; color: #1094ab; text-decoration: none; transition: color 0.2s; }
+        .forgot-pwd a:hover { color: #063338; text-decoration: underline; }
+
+        .form-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 32px; margin-top: 24px; }
+        .create-account { font-size: 16px; font-weight: 700; color: #063338; text-decoration: none; transition: color 0.2s; }
+        .create-account:hover { color: #1094ab; text-decoration: underline; }
+        
+        .btn-submit { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 40px; border-radius: 9999px; font-weight: 800; font-size: 18px; border: none; background-color: #fcb421; color: #063338; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.2s; }
+        .btn-submit:hover { filter: brightness(1.05); transform: translateY(-2px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        
+        <div class="left-panel">
+            <div class="blur-yellow"></div>
+            <div class="blur-blue"></div>
+            
+            <div class="left-content">
+                <svg class="rocket-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 56px; height: 56px;">
+                    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+                    <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+                    <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
+                    <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+                </svg>
+
+                <h1 class="hero-title">
+                    Continue a <br>
+                    <span class="hero-italic">inspirar</span> <br>
+                    o futuro.
+                </h1>
+                
+                <p class="hero-desc">
+                    Acesse sua conta e retome de onde parou.
+                </p>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            
+            <div class="logo-container">
+                <svg viewBox="0 0 24 24" fill="#fcb421" stroke="#fcb421" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 42px; height: 42px;"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.2 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+                <div class="logo-text">inspira<span>USP</span></div>
+            </div>
+
+            <div class="form-card">
+                <div class="card-top-accent"></div>
+                
+                <div class="form-header">
+                    <h2 class="form-title">Iniciar sessão</h2>
+                    <p class="form-subtitle">Que bom ver você novamente!</p>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">E-mail</label>
+                    <input type="email" class="input-field" placeholder="seu@email.com">
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Senha</label>
+                    <div class="input-relative">
+                        <input type="password" class="input-field" placeholder="Digite sua senha" style="padding-right: 48px;">
+                        <button class="icon-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" x2="22" y1="2" y2="22"/></svg>
+                        </button>
+                    </div>
+                    
+                    <div class="forgot-pwd">
+                        <a href="#">Esqueci minha senha</a>
+                    </div>
+                </div>
+
+                <div class="form-footer">
+                    <a href="#" class="create-account">Criar conta nova</a>
+                    
+                    <button class="btn-submit">
+                        Entrar
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+
+</body>
+</html>
