@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inspira USP</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Fredoka:wght@300..700&display=swap');
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    .font-title {
+      font-family: 'Amaranth', sans-serif;
+    }
+    .font-body {
+      font-family: 'Fredoka', sans-serif;
+    }
+  </style>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="min-h-screen bg-gray-50 font-body text-[#063338] selection:bg-[#fcb421] selection:text-[#063338]">
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+        <div class="flex items-center gap-2 cursor-pointer">
+          <div class="bg-[#1094ab] text-white p-2 rounded-xl flex flex-col items-center justify-center h-12 w-12 relative shadow-md">
+            <i data-lucide="lightbulb" class="w-6 h-6 mb-1"></i>
+            <div class="absolute bottom-1 w-6 h-1 bg-[#fcb421] rounded-full"></div>
+            <div class="absolute bottom-2.5 w-8 h-1 bg-[#fcb421] rounded-full"></div>
+          </div>
+          <div class="flex flex-col justify-center">
+            <span class="font-title font-bold text-3xl leading-none text-[#1094ab] tracking-tight">
+              inspira
+            </span>
+            <span class="font-title font-bold text-lg leading-none text-[#1094ab] tracking-widest text-right -mt-1">
+              USP
+            </span>
+          </div>
+        </div>
+
+        <div class="hidden md:flex items-center gap-4">
+          <button class="flex items-center gap-2 px-5 py-2.5 text-[#063338] font-medium hover:bg-gray-100 rounded-full transition-colors">
+            <i data-lucide="user-plus" class="w-[18px] h-[18px]"></i>
+            CADASTRAR-SE
+          </button>
+          <button class="flex items-center gap-2 px-6 py-2.5 bg-[#fcb421] text-[#063338] font-medium rounded-full hover:bg-[#e09e19] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
+            <i data-lucide="log-in" class="w-[18px] h-[18px]"></i>
+            INICIAR SESSÃO
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-[1440px] mx-auto px-6 lg:px-12 pt-8 pb-24 space-y-24">
+      
+      <div class="space-y-12">
+        <section class="bg-white rounded-[40px] shadow-xl overflow-hidden flex flex-col lg:flex-row min-h-[500px] border border-gray-100">
+          <div class="w-full lg:w-[55%] relative h-[350px] lg:h-auto">
+            <img 
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop" 
+              alt="Estudantes reunidos na biblioteca" 
+              class="w-full h-full object-cover"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent lg:hidden"></div>
+          </div>
+
+          <div class="w-full lg:w-[45%] bg-[#1094ab] text-white p-12 lg:p-16 flex flex-col justify-center relative">
+            <h1 class="font-title text-5xl lg:text-7xl font-bold leading-[1.1] z-10">
+              Inspire-se <br>
+              <span class="font-normal text-4xl lg:text-6xl">ou</span> <br>
+              torne-se a <br>
+              <span class="italic text-[#fcb421]">inspiração</span>
+            </h1>
+            
+            <div class="absolute bottom-10 right-10 lg:bottom-16 lg:right-16 opacity-90 w-24 lg:w-32">
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M85 15C85 15 70 35 60 55C50 75 40 85 30 85C20 85 15 75 25 65C35 55 55 35 70 20C75 15 80 12 85 15Z" fill="#fcb421"/>
+                <path d="M25 85C20 90 10 95 5 90C0 85 5 75 15 70C20 68 25 70 25 85Z" fill="#fcb421"/>
+              </svg>
+            </div>
+            
+            <div class="absolute top-10 right-10 flex gap-2">
+               <div class="w-2 h-2 rounded-full bg-white/30"></div>
+               <div class="w-2 h-2 rounded-full bg-white/30"></div>
+               <div class="w-2 h-2 rounded-full bg-[#fcb421]"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white rounded-[32px] p-8 shadow-sm border border-[#1094ab]/10 hover:shadow-xl hover:border-[#1094ab]/30 transition-all group flex flex-col h-full">
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="font-title font-bold text-2xl text-[#063338] uppercase tracking-wide">Sobre Nós</h2>
+              <div class="w-10 h-10 rounded-full bg-[#1094ab]/10 flex items-center justify-center text-[#1094ab]">
+                <i data-lucide="info" class="w-6 h-6"></i>
+              </div>
+            </div>
+            
+            <ul class="space-y-4 text-[#063338] flex-1">
+              <li>
+                <a href="#nossa-historia" class="flex items-center justify-between group/link hover:text-[#1094ab] transition-colors">
+                  <span class="text-lg font-medium">História</span>
+                  <i data-lucide="arrow-up-right" class="w-5 h-5 text-[#fcb421] group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform"></i>
+                </a>
+              </li>
+              <div class="h-px w-full bg-gray-100"></div>
+              <li>
+                <a href="#nossa-equipe" class="flex items-center justify-between group/link hover:text-[#1094ab] transition-colors">
+                  <span class="text-lg font-medium">Equipe</span>
+                  <i data-lucide="arrow-up-right" class="w-5 h-5 text-[#fcb421] group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform"></i>
+                </a>
+              </li>
+              <div class="h-px w-full bg-gray-100"></div>
+              <li>
+                <a href="#transparencia" class="flex items-center justify-between group/link hover:text-[#1094ab] transition-colors">
+                  <span class="text-lg font-medium">Transparência</span>
+                  <i data-lucide="arrow-up-right" class="w-5 h-5 text-[#fcb421] group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-[32px] p-8 shadow-sm border border-[#1094ab]/10 hover:shadow-xl hover:border-[#1094ab]/30 transition-all flex flex-col h-full">
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="font-title font-bold text-2xl text-[#063338] uppercase tracking-wide leading-tight">Quem Pode<br>Participar</h2>
+              <div class="w-10 h-10 rounded-full bg-[#1094ab]/10 flex items-center justify-center text-[#1094ab] shrink-0">
+                <i data-lucide="users" class="w-6 h-6"></i>
+              </div>
+            </div>
+            <p class="text-[#063338] text-lg font-light leading-relaxed flex-1">
+              Toda a comunidade acadêmica e os moradores de São Carlos, de qualquer idade.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-[32px] p-8 shadow-sm border border-[#1094ab]/10 hover:shadow-xl hover:border-[#1094ab]/30 transition-all flex flex-col h-full relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1.5 bg-[#fcb421]"></div>
+            <div class="flex items-center justify-between mb-6 mt-2">
+              <h2 class="font-title font-bold text-2xl text-[#063338] uppercase tracking-wide leading-tight">Emissão de<br>Certificado</h2>
+              <div class="w-10 h-10 rounded-full bg-[#1094ab]/10 flex items-center justify-center text-[#1094ab] shrink-0">
+                <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+              </div>
+            </div>
+            <p class="text-[#063338] text-lg font-light leading-relaxed flex-1">
+              Participe, amplie seus conhecimentos e ainda receba um certificado de participação digital.
+            </p>
+          </div>
+
+          <div class="bg-[#063338] rounded-[32px] p-8 shadow-lg text-white flex flex-col h-full justify-center relative overflow-hidden">
+            <div class="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-white/5"></div>
+            <div class="absolute -bottom-10 -left-10 w-24 h-24 rounded-full bg-[#1094ab]/20"></div>
+
+            <h2 class="font-title font-bold text-2xl uppercase tracking-wide leading-tight mb-8 relative z-10 text-center">
+              Fique por dentro<br>das novidades
+            </h2>
+            
+            <div class="flex flex-col gap-4 relative z-10">
+              <a href="#" class="flex items-center gap-4 bg-white/10 p-3 rounded-2xl hover:bg-white/20 transition-colors backdrop-blur-sm group">
+                <div class="bg-[#fcb421] w-12 h-12 rounded-full flex items-center justify-center text-[#063338] shadow-md group-hover:scale-110 transition-transform">
+                  <i data-lucide="instagram" class="w-6 h-6"></i>
+                </div>
+                <span class="font-medium text-lg tracking-wide">@inspiraUSP</span>
+              </a>
+              
+              <a href="#" class="flex items-center gap-4 bg-white/10 p-3 rounded-2xl hover:bg-white/20 transition-colors backdrop-blur-sm group">
+                <div class="bg-[#fcb421] w-12 h-12 rounded-full flex items-center justify-center text-[#063338] shadow-md group-hover:scale-110 transition-transform pl-1">
+                  <i data-lucide="send" class="w-[22px] h-[22px]"></i>
+                </div>
+                <span class="font-medium text-lg tracking-wide">@inspiraUSP</span>
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="h-px w-full bg-gray-200"></div>
+
+      <section id="nossa-historia" class="scroll-mt-24">
+        <div class="bg-[#fcb421] rounded-[40px] p-1.5 lg:p-2 shadow-lg">
+          <div class="bg-white rounded-[36px] p-10 lg:p-16 flex flex-col lg:flex-row gap-12 items-center">
+            <div class="lg:w-1/3 flex justify-center">
+              <div class="w-48 h-48 bg-[#1094ab]/10 rounded-full flex items-center justify-center relative">
+                <i data-lucide="heart-handshake" class="w-20 h-20 text-[#1094ab]"></i>
+                <div class="absolute -top-2 -right-2 w-12 h-12 bg-[#fcb421] rounded-full border-4 border-white"></div>
+                <div class="absolute bottom-4 -left-4 w-8 h-8 bg-[#063338] rounded-full border-4 border-white"></div>
+              </div>
+            </div>
+            <div class="lg:w-2/3">
+              <h2 class="font-title text-4xl lg:text-5xl font-bold text-[#063338] mb-6">
+                De uma necessidade, <span class="text-[#1094ab]">nasceu a inspiração.</span>
+              </h2>
+              <p class="text-lg lg:text-xl text-gray-700 leading-relaxed font-light">
+                O <strong class="font-medium text-[#063338]">InspiraUSP</strong> nasceu da união de três alunos de graduação e um professor orientador do ICMC-USP com um propósito claro: democratizar o conhecimento e conectar a universidade à comunidade. 
+                Com a nova obrigatoriedade de horas de extensão para os ingressantes a partir de 2023, vimos a oportunidade perfeita de criar uma plataforma web (integrada ao ApoloUSP) onde alunos e professores podem compartilhar suas habilidades ministrando cursos, enquanto participantes de qualquer idade, de dentro ou fora da USP, podem aprender e garantir seus certificados digitais. 
+                <br><br>
+                Mais do que código e infraestrutura, estamos construindo uma ponte para que a educação seja <strong class="font-medium text-[#1094ab]">acessível para todos, por todos.</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="nossa-equipe" class="scroll-mt-24">
+        <div class="text-center mb-16">
+          <h2 class="font-title text-4xl lg:text-5xl font-bold text-[#063338] mb-4">Conheça a Equipe</h2>
+          <p class="text-lg text-gray-500 max-w-2xl mx-auto">As mentes por trás do desenvolvimento, arquitetura e orientação do projeto InspiraUSP.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <div class="bg-white rounded-[32px] p-8 shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all flex gap-6">
+            <div class="w-24 h-24 lg:w-32 lg:h-32 shrink-0 rounded-full bg-gray-100 border-4 border-[#1094ab] flex items-center justify-center overflow-hidden relative group">
+              <i data-lucide="image" class="w-8 h-8 text-gray-400 group-hover:scale-110 transition-transform"></i>
+            </div>
+            <div class="flex-1 flex flex-col justify-center">
+              <h3 class="font-title font-bold text-2xl text-[#063338]">Mônica Sousa</h3>
+              <span class="text-[#1094ab] font-medium mb-3 flex items-center gap-2">
+                <i data-lucide="code" class="w-4 h-4"></i> Co-criadora & Desenvolvedora
+              </span>
+              <p class="text-gray-600 text-sm lg:text-base leading-relaxed" title="Estudante de SI na USP e integrante do GRACE-ICMC. Carrega grande bagagem técnica desde a FIEB e atua profissionalmente na área desde os 15 anos. Com sede de ensinar, hoje é Software Applications Engineer na Amdocs, multinacional de telecom.">
+                Estudante de SI na USP e integrante do GRACE-ICMC. Carrega grande bagagem técnica desde a FIEB e atua profissionalmente na área desde os 15 anos. Com sede de ensinar, hoje é Software Applications Engineer na Amdocs, multinacional de telecom.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-[32px] p-8 shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all flex gap-6">
+            <div class="w-24 h-24 lg:w-32 lg:h-32 shrink-0 rounded-full bg-gray-100 border-4 border-[#fcb421] flex items-center justify-center overflow-hidden relative group">
+              <i data-lucide="image" class="w-8 h-8 text-gray-400 group-hover:scale-110 transition-transform"></i>
+            </div>
+            <div class="flex-1 flex flex-col justify-center">
+              <h3 class="font-title font-bold text-2xl text-[#063338]">Bruno Zuffo</h3>
+              <span class="text-[#fcb421] font-medium mb-3 flex items-center gap-2">
+                <i data-lucide="code" class="w-4 h-4"></i> Co-criador & Desenvolvedor
+              </span>
+              <p class="text-gray-600 text-sm lg:text-base leading-relaxed" title="Estudante de Engenharia de Computação na USP, membro do CodeLab ICMC e Desenvolvedor Full Stack na Folki. Apaixonado por inovação, divide seu foco entre a criação de aplicações de impacto para estudantes e pesquisas com Inteligência Artificial e LLMs.">
+                Estudante de Engenharia de Computação na USP, membro do CodeLab ICMC e Desenvolvedor Full Stack na Folki. Apaixonado por inovação, divide seu foco entre a criação de aplicações de impacto para estudantes e pesquisas com Inteligência Artificial e LLMs.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-[32px] p-8 shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all flex gap-6">
+            <div class="w-24 h-24 lg:w-32 lg:h-32 shrink-0 rounded-full bg-gray-100 border-4 border-[#1094ab] flex items-center justify-center overflow-hidden relative group">
+              <i data-lucide="image" class="w-8 h-8 text-gray-400 group-hover:scale-110 transition-transform"></i>
+            </div>
+            <div class="flex-1 flex flex-col justify-center">
+              <h3 class="font-title font-bold text-2xl text-[#063338]">Ana Kodama</h3>
+              <span class="text-[#1094ab] font-medium mb-3 flex items-center gap-2">
+                <i data-lucide="server" class="w-4 h-4"></i> Co-criadora & Desenvolvedora
+              </span>
+              <p class="text-gray-600 text-sm lg:text-base leading-relaxed" title="Estudante de Ciência da Computação na USP, atua lado a lado com a equipe na estruturação do Backend e servidores. Pesquisadora de Blockchain no LARC Poli-USP, agrega forte vivência em engenharia de software e alto volume de dados, adquirida no BTG Pactual.">
+                Estudante de Ciência da Computação na USP, atua lado a lado com a equipe na estruturação do Backend e servidores. Pesquisadora de Blockchain no LARC Poli-USP, agrega forte vivência em engenharia de software e alto volume de dados, adquirida no BTG Pactual.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-[#063338] rounded-[32px] p-8 shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all flex gap-6 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-[#fcb421]/10 rounded-full blur-2xl"></div>
+            <div class="w-24 h-24 lg:w-32 lg:h-32 shrink-0 rounded-full bg-gray-800 border-4 border-white flex items-center justify-center overflow-hidden relative group z-10">
+              <i data-lucide="image" class="w-8 h-8 text-gray-400 group-hover:scale-110 transition-transform"></i>
+            </div>
+            <div class="flex-1 flex flex-col justify-center z-10">
+              <h3 class="font-title font-bold text-2xl text-white">Prof. Dr. Eduardo Simões</h3>
+              <span class="text-[#fcb421] font-medium mb-3 flex items-center gap-2">
+                <i data-lucide="cpu" class="w-4 h-4"></i> Orientador do Projeto
+              </span>
+              <p class="text-gray-300 text-sm lg:text-base leading-relaxed" title="Professor do ICMC-USP com vasta trajetória em Inteligência Artificial, Sistemas Embarcados e Robótica. Como orientador, é um grande incentivador da extensão universitária, guiando os alunos a transformarem conhecimento em soluções com impacto social real.">
+                Professor do ICMC-USP com vasta trajetória em Inteligência Artificial, Sistemas Embarcados e Robótica. Como orientador, é um grande incentivador da extensão universitária, guiando os alunos a transformarem conhecimento em soluções com impacto social real.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <div class="h-px w-full bg-gray-200"></div>
+
+      <section id="transparencia" class="scroll-mt-24">
+        <div class="text-center mb-12">
+          <h2 class="font-title text-4xl lg:text-5xl font-bold text-[#063338] mb-4">Transparência</h2>
+          <p class="text-lg text-gray-500 max-w-2xl mx-auto">Nosso compromisso com a clareza, proteção de dados e desenvolvimento responsável.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-[32px] p-8 shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-xl hover:-translate-y-1 transition-all">
+            <div class="w-16 h-16 rounded-full bg-[#1094ab]/10 flex items-center justify-center mb-6">
+              <i data-lucide="shield-check" class="w-8 h-8 text-[#1094ab]"></i>
+            </div>
+            <h3 class="font-title text-2xl font-bold text-[#063338] mb-3">Privacidade e LGPD</h3>
+            <p class="text-gray-600 font-light leading-relaxed">
+              Integrados ao sistema ApoloUSP, garantimos a segurança máxima e o tratamento rigoroso dos dados de todos os alunos e ministrantes, em total conformidade com a LGPD.
+            </p>
+          </div>
+          
+          <div class="bg-white rounded-[32px] p-8 shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-xl hover:-translate-y-1 transition-all">
+            <div class="w-16 h-16 rounded-full bg-[#fcb421]/10 flex items-center justify-center mb-6">
+              <i data-lucide="code-2" class="w-8 h-8 text-[#fcb421]"></i>
+            </div>
+            <h3 class="font-title text-2xl font-bold text-[#063338] mb-3">Desenvolvimento Aberto</h3>
+            <p class="text-gray-600 font-light leading-relaxed">
+              Um projeto construído por alunos, para a comunidade. Valorizamos o compartilhamento de conhecimento, utilizando infraestrutura moderna com Python, React e Docker.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-[32px] p-8 shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-xl hover:-translate-y-1 transition-all">
+            <div class="w-16 h-16 rounded-full bg-[#1094ab]/10 flex items-center justify-center mb-6">
+              <i data-lucide="file-text" class="w-8 h-8 text-[#1094ab]"></i>
+            </div>
+            <h3 class="font-title text-2xl font-bold text-[#063338] mb-3">Vínculo Institucional</h3>
+            <p class="text-gray-600 font-light leading-relaxed">
+              Iniciativa formal de extensão supervisionada pelo ICMC-USP, com aprovação da CCEx, visando democratizar as horas de extensão para os alunos e gerar impacto social.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
